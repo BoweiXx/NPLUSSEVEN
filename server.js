@@ -21,26 +21,25 @@ const io = require('socket.io')(httpServer);
 io.on("connection", socket => {
     socket.on("conversion", msg => {
         let tempArray = msg.split(" ");
-        for (let i = 0; i < tempArray.length; i++) {
-            let index = -1;
-            index = parseInt(getKeyByVal(dictionary, tempArray[i]));
-            // console.log(typeof index);
-
-            if(!index){
-                continue;
-            }
-            tempArray[i] = dictionary[index + 7];
-        }
+                for (let i = 0; i < tempArray.length; i++) {
+                    let index = -1;
+                    index = parseInt(getKeyByVal(dictionary, tempArray[i].toLowerCase().replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?]/g,"")));
+                    // console.log(typeof index);
+                    if (!index) {
+                        continue;
+                    }
+                    tempArray[i] = dictionary[index + 7];
+                }
         let dataToSend = tempArray.join(" ");
         socket.emit("done", dataToSend);
     })
 });
 
-function getKeyByVal(obj, val){
-    for(let elem in obj){
-        if(obj.hasOwnProperty(elem)){
+function getKeyByVal(obj, val) {
+    for (let elem in obj) {
+        if (obj.hasOwnProperty(elem)) {
             // console.log(elem)
-            if(obj[elem] === val){
+            if (obj[elem] === val) {
                 return elem;
             }
         }

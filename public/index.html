@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src = "client.js"></script>
+    <script src="client.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <title>Class1</title>
+    <style>
+        #main {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 60px;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Dictionary is downloaded from Simple words lists: https://github.com/taikuukaits/SimpleWordlists, and convert the file: WordList - Noun.txt to JSON-->
-    <input>
-    <button>Convert!</button>
-    <div id = "display"></div>
+    <div id="main">
+        <input>
+        <button>Convert!</button>
+        <div id="display"></div>
+    </div>
 </body>
+
 </html>
