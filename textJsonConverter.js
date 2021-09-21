@@ -2,7 +2,6 @@
 const fs = require("fs");
 const readline = require("readline");
 const jsonFile = require("jsonfile");
-// const { resolve } = require("path");
 function converter(src){
     let counter = 0;
     return new Promise((resolve, rej)=>{
